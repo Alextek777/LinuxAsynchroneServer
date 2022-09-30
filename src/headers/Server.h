@@ -7,6 +7,7 @@
 #include <string>
 #include <string.h>
 #include <exception>
+#include <thread>
 using namespace std;
 
 class Server{
@@ -14,8 +15,8 @@ class Server{
     int port;
 
     int listening;
-
-    public:
+    static void handleUser(int clientSocket);
+public:
     Server(const std::string& ip, int port);
 
     void start();
